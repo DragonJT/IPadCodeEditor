@@ -106,9 +106,7 @@ function Resize(){
 }
 
 function TouchStart(e){
-    console.log(e);
-    var touch = e.originalEvent.touches[0];
-    CallGUIReverse('MouseDown', {mouse:[touch.pageX, touch.pageY]});
+    CallGUIReverse('MouseDown', {mouse:[e.pageX, e.pageY]});
     Draw();
 }
 

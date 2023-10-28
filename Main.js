@@ -204,6 +204,8 @@ document.body.style.overflow = 'hidden';
 addEventListener('resize', Resize);
 addEventListener('mousedown', MouseDown);
 addEventListener('mouseup', MouseUp);
+addEventListener('touchstart', MouseDown);
+addEventListener('touchend', MouseUp);
 
 var codeEditor = {value:''};
 NormalKeyboard(1, [0,0.4,1,0.6], codeEditor, false);

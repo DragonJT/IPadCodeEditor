@@ -111,7 +111,7 @@ function TouchStart(e){
 }
 
 function TouchEnd(e){
-    CallGUIReverse('MouseDown', {});
+    CallGUIReverse('MouseUp', {});
     Draw();
 }
 

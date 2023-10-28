@@ -106,9 +106,13 @@ function Resize(){
 }
 
 function TouchStart(e){
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0,0,100,100);
     var touch = e.originalEvent.touches[0];
     CallGUIReverse('MouseDown', {mouse:[touch.pageX, touch.pageY]});
     Draw();
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(0,0,100,100);
 }
 
 function TouchEnd(e){

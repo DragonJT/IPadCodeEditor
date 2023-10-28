@@ -105,13 +105,24 @@ function Resize(){
     Draw();
 }
 
+function TouchStart(e){
+    var touch = e.originalEvent.touches[0];
+    CallGUIReverse('MouseDown', {mouse:[touch.pageX, touch.pageY]});
+    Draw();
+}
+
+function TouchEnd(e){
+    CallGUIReverse('MouseDown', {});
+    Draw();
+}
+
 function MouseDown(e){
     CallGUIReverse('MouseDown', {mouse:[e.clientX, e.clientY]});
     Draw();
 }
 
 function MouseUp(e){
-    CallGUIReverse('MouseUp', {mouse:[e.clientX, e.clientY]});
+    CallGUIReverse('MouseUp', {});
     Draw();
 }
 
@@ -204,8 +215,8 @@ document.body.style.overflow = 'hidden';
 addEventListener('resize', Resize);
 addEventListener('mousedown', MouseDown);
 addEventListener('mouseup', MouseUp);
-addEventListener('touchstart', MouseDown);
-addEventListener('touchend', MouseUp);
+addEventListener('touchstart', TouchStart);
+addEventListener('touchend', TouchEnd);
 
 var codeEditor = {value:''};
 NormalKeyboard(1, [0,0.4,1,0.6], codeEditor, false);
